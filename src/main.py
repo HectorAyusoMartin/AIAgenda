@@ -1,56 +1,60 @@
-#punto de entrada
-
-
 from modules.gestor_tareas import GestorTareas
+from colorama import Fore, Style, init
+
+# Inicializar colorama
+init(autoreset=True)
 
 def main():
-    print("Bienvenido a AI Agenda")
+    print(Fore.BLUE + "Bienvenido a AI Agenda\n")
 
     gestor_tareas = GestorTareas()
 
     while True:
-        print("\nOpciones:")
-        print("1. Añadir tarea")
-        print("2. Ver tareas")
-        print("3. Eliminar tarea")
-        print("4. Salir")
+        print(Style.BRIGHT + Fore.CYAN + "\nOpciones:")
+        print(Fore.YELLOW + "1. Agregar tarea")
+        print(Fore.YELLOW + "2. Ver tareas")
+        print(Fore.YELLOW + "3. Eliminar tarea")
+        print(Fore.YELLOW + "4. Salir")
 
-        
-        opcion = input("Elige una opción: ").strip()
+        opcion = input(Fore.CYAN + "Elige una opción: ").strip()
 
         if opcion == "1":
-            tarea = input("Escribe la nueva tarea: ").strip()
+            tarea = input(Fore.GREEN + "Escribe la nueva tarea: ").strip()
             gestor_tareas.agregar_tarea(tarea)
-            print("Tarea añadida.")
+            print(Fore.GREEN + "Tarea añadida correctamente.")
 
         elif opcion == "2":
             tareas = gestor_tareas.listar_tareas()
+            print(Style.BRIGHT + Fore.BLUE + "\nTus tareas:")
             if tareas:
-                print("Tus tareas:")
-                for i, tarea in enumerate(tareas, 1):  # Enumerar desde 1
-                    print(f"{i}. {tarea}")
+                for i, tarea in enumerate(tareas, 1):
+                    print(f"{Fore.YELLOW}{i}. {Fore.WHITE}{tarea}")
             else:
-                print("No tienes tareas.")
+                print(Fore.RED + "No tienes tareas registradas.")
 
         elif opcion == "3":
             tareas = gestor_tareas.listar_tareas()
             if not tareas:
-                print("No hay tareas para eliminar.")
+                print(Fore.RED + "No hay tareas para eliminar.")
                 continue
 
+            print(Style.BRIGHT + Fore.BLUE + "\nTareas disponibles:")
+            for i, tarea in enumerate(tareas, 1):
+                print(f"{Fore.YELLOW}{i}. {Fore.WHITE}{tarea}")
+
             try:
-                indice = int(input("Elige el número de la tarea a eliminar: ").strip())
+                indice = int(input(Fore.CYAN + "Elige el número de la tarea a eliminar: ").strip())
                 gestor_tareas.eliminar_tarea(indice - 1)  # Restar 1 porque enumeramos desde 1
-                print("Tarea eliminada.")
+                print(Fore.GREEN + "Tarea eliminada correctamente.")
             except (ValueError, IndexError):
-                print("Por favor, introduce un número válido dentro del rango.")
+                print(Fore.RED + "Por favor, introduce un número válido dentro del rango.")
 
         elif opcion == "4":
-            print("¡Hasta luego!")
+            print(Fore.GREEN + "¡Hasta luego!")
             break
 
         else:
-            print("Por favor, elige una opción válida (1-4).")
+            print(Fore.RED + "Por favor, elige una opción válida (1-4).")
 
 if __name__ == "__main__":
     main()
