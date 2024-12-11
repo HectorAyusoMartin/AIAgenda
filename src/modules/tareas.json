@@ -1,14 +1,38 @@
-[
-    {
-        "descripcion": "a",
-        "prioridad": "Alta"
-    },
-    {
-        "descripcion": "b",
-        "prioridad": "Media"
-    },
-    {
-        "descripcion": "c",
-        "prioridad": "Baja"
-    }
-]
+{
+    "tareas_activas": [
+        {
+            "descripcion": "c",
+            "prioridad": "Alta"
+        },
+        {
+            "descripcion": "f",
+            "prioridad": "Alta"
+        },
+        {
+            "descripcion": "b",
+            "prioridad": "Media"
+        },
+        {
+            "descripcion": "d",
+            "prioridad": "Media"
+        },
+        {
+            "descripcion": "e",
+            "prioridad": "Media"
+        },
+        {
+            "descripcion": "d",
+            "prioridad": "Baja"
+        }
+    ],
+    "tareas_completadas": [
+        {
+            "descripcion": "cambio a por hacer la cama",
+            "prioridad": "Alta"
+        },
+        {
+            "descripcion": "a",
+            "prioridad": "Alta"
+        }
+    ]
+}
