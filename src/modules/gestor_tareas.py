@@ -6,14 +6,24 @@ class GestorTareas:
         self.lista_tareas = []
         
         
-    def agregar_tarea(self, tarea):
+    def agregar_tarea(self, descripcion, prioridad):
+        
+        tarea = {'descripcion': descripcion , 'prioridad' : prioridad}
         
         self.lista_tareas.append(tarea)
+        
+        #ordenando la lista por oden de prioridad
+        
+        self.lista_tareas.sort(key=lambda t: {"Alta": 1, "Media": 2, "Baja": 3}[t["prioridad"]])
+
         
         
     def listar_tareas(self):
         
         return self.lista_tareas
+    
+    
+    
     
     def eliminar_tarea(self, indice):
         

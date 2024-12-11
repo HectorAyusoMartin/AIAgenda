@@ -17,10 +17,17 @@ def main():
         print(Fore.YELLOW + "4. Salir")
 
         opcion = input(Fore.CYAN + "Elige una opción: ").strip()
+        
+        
+        
 
         if opcion == "1":
-            tarea = input(Fore.GREEN + "Escribe la nueva tarea: ").strip()
-            gestor_tareas.agregar_tarea(tarea)
+            descripcion = input(Fore.GREEN + "Escribe la nueva tarea: ").strip()
+            prioridad = input(Fore.GREEN + "Escribe la prioridad (Alta, Media, Baja): ").strip().capitalize()
+            if prioridad not in ["Alta", "Media", "Baja"]:
+                print(Fore.RED + "Prioridad inválida. Usa 'Alta', 'Media' o 'Baja'.")
+                continue
+            gestor_tareas.agregar_tarea(descripcion, prioridad)
             print(Fore.GREEN + "Tarea añadida correctamente.")
 
         elif opcion == "2":
@@ -28,10 +35,10 @@ def main():
             print(Style.BRIGHT + Fore.BLUE + "\nTus tareas:")
             if tareas:
                 for i, tarea in enumerate(tareas, 1):
-                    print(f"{Fore.YELLOW}{i}. {Fore.WHITE}{tarea}")
+                    print(f"{Fore.YELLOW}{i}. {Fore.WHITE}{tarea['descripcion']} ({tarea['prioridad']})")
             else:
                 print(Fore.RED + "No tienes tareas registradas.")
-
+                
         elif opcion == "3":
             tareas = gestor_tareas.listar_tareas()
             if not tareas:
