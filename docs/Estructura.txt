@@ -1,0 +1,11 @@
+AI_Agenda/
+├── src/                # Código fuente
+│   ├── main.py         # Archivo principal
+│   ├── utils/          # Funciones de apoyo
+│   └── modules/        # Módulos específicos (por ejemplo, IA o manejo de datos)
+├── tests/              # Pruebas unitarias
+├── docs/               # Documentación
+│   └── README.md       # Instrucciones generales
+├── requirements.txt    # Dependencias del proyecto
+├── .gitignore          # Archivos ignorados por Git
+└── LICENSE             # Licencia del proyecto (opcional)
