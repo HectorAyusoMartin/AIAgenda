@@ -1,5 +1,15 @@
 from modules.gestor_tareas import GestorTareas
+from modules.clasificador_prioridades import ClasificadorPrioridades
+
+
+
 from colorama import Fore, Style, init
+
+
+
+
+
+
 
 # Inicializar colorama
 init(autoreset=True)
@@ -8,6 +18,12 @@ def main():
     print(Fore.BLUE + "Bienvenido a AI Agenda\n")
 
     gestor_tareas = GestorTareas()
+    #asistente = Asistente()
+    clasificador = ClasificadorPrioridades()
+    clasificador.entrenar_modelo()
+    
+    
+    
 
     while True:
         print(Style.BRIGHT + Fore.CYAN + "\nOpciones:")
@@ -19,6 +35,9 @@ def main():
         print(Fore.YELLOW + "6. Editar una tarea")
         print(Fore.YELLOW + "7. Marcar una tarea como completada")
         print(Fore.YELLOW + "8. Salir")
+        print(Fore.YELLOW + "9. Predecir prioridad de una tarea")
+
+            
 
         opcion = input(Fore.CYAN + "Elige una opción: ").strip()
 
@@ -128,6 +147,15 @@ def main():
         elif opcion == "8":
             print(Fore.GREEN + "¡Hasta luego!")
             break
+        
+        elif opcion == "9":
+            
+            descripcion = input(Fore.GREEN + "Escribe la descripción de la tarea: ").strip()
+            prioridad = clasificador.predecir_prioridad(descripcion)
+            print(Fore.MAGENTA + f"La prioridad sugerida es: {prioridad}")
+        
+        
+
 
         else:
             print(Fore.RED + "Por favor, elige una opción válida (1-8).")

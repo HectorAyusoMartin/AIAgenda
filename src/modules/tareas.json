@@ -23,6 +23,10 @@
         {
             "descripcion": "d",
             "prioridad": "Baja"
+        },
+        {
+            "descripcion": "z",
+            "prioridad": "Baja"
         }
     ],
     "tareas_completadas": [
