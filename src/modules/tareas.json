@@ -1,5 +1,22 @@
 {
-    "tareas_activas": [],
+    "tareas_activas": [
+        {
+            "descripcion": "llamar al banco",
+            "prioridad": "Alta"
+        },
+        {
+            "descripcion": "hacer la cama",
+            "prioridad": "Media"
+        },
+        {
+            "descripcion": "hacer la cama",
+            "prioridad": "Media"
+        },
+        {
+            "descripcion": "hola como estan",
+            "prioridad": "Media"
+        }
+    ],
     "tareas_completadas": [
         {
             "descripcion": "cambio a por hacer la cama",
