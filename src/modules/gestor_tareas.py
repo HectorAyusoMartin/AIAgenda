@@ -87,3 +87,7 @@ class GestorTareas:
             print(f"No se encontró {self.archivo}, inicializando lista vacía.")
             self.lista_tareas = []
             self.tareas_completadas = []
+            
+    def buscar_tareas(self, palabra_clave):
+        """Devuelve una lista de tareas activas que contienen la palabra clave en su descripción."""
+        return [tarea for tarea in self.lista_tareas if palabra_clave.lower() in tarea["descripcion"].lower()]

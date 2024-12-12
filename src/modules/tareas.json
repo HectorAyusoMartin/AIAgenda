@@ -37,6 +37,10 @@
         {
             "descripcion": "a",
             "prioridad": "Alta"
+        },
+        {
+            "descripcion": "llamar a Lydia para que compre loteria",
+            "prioridad": "Alta"
         }
     ]
 }

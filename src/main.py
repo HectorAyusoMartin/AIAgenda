@@ -18,7 +18,7 @@ def main():
     print(Fore.BLUE + "Bienvenido a AI Agenda\n")
 
     gestor_tareas = GestorTareas()
-    #asistente = Asistente()
+    
     clasificador = ClasificadorPrioridades()
     clasificador.entrenar_modelo()
     
@@ -36,6 +36,8 @@ def main():
         print(Fore.YELLOW + "7. Marcar una tarea como completada")
         print(Fore.YELLOW + "8. Salir")
         print(Fore.YELLOW + "9. Predecir prioridad de una tarea")
+        print(Fore.YELLOW + "10. Busqueda de Tarea por palabra clave")
+        
 
             
 
@@ -154,11 +156,26 @@ def main():
             prioridad = clasificador.predecir_prioridad(descripcion)
             print(Fore.MAGENTA + f"La prioridad sugerida es: {prioridad}")
         
+        elif opcion == '10':
+            
+            palabra_clave = input(Fore.GREEN + "Introduce una palabra clave para buscar: ").strip()
+            resultados = gestor_tareas.buscar_tareas(palabra_clave)
+                
+            if resultados:
+                    
+                print(Fore.BLUE + f"Tareas que coinciden con '{palabra_clave}':")
+                
+                
+                for i, tarea in enumerate(resultados, 1):
+                    print(f"{Fore.YELLOW}{i}. {Fore.WHITE}{tarea['descripcion']} ({tarea['prioridad']})")
+                    
+            else:
+                print(Fore.RED + f"No se encontraron tareas que contengan '{palabra_clave}'.")
         
 
 
         else:
-            print(Fore.RED + "Por favor, elige una opción válida (1-8).")
+            print(Fore.RED + "Por favor, elige una opción válida (1-10).")
 
 if __name__ == "__main__":
     main()
