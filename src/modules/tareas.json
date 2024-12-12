@@ -1,32 +1,8 @@
 {
     "tareas_activas": [
         {
-            "descripcion": "c",
-            "prioridad": "Alta"
-        },
-        {
-            "descripcion": "f",
-            "prioridad": "Alta"
-        },
-        {
-            "descripcion": "b",
+            "descripcion": "hacer la cama despues de despertarme",
             "prioridad": "Media"
-        },
-        {
-            "descripcion": "d",
-            "prioridad": "Media"
-        },
-        {
-            "descripcion": "e",
-            "prioridad": "Media"
-        },
-        {
-            "descripcion": "d",
-            "prioridad": "Baja"
-        },
-        {
-            "descripcion": "z",
-            "prioridad": "Baja"
         }
     ],
     "tareas_completadas": [

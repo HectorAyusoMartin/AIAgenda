@@ -1,5 +1,7 @@
 from modules.gestor_tareas import GestorTareas
 from modules.clasificador_prioridades import ClasificadorPrioridades
+from modules.sugeridor_prioridad import SugeridorDePrioridad
+
 
 
 
@@ -21,6 +23,7 @@ def main():
     
     clasificador = ClasificadorPrioridades()
     clasificador.entrenar_modelo()
+    sugeridor = SugeridorDePrioridad()
     
     
     
@@ -42,15 +45,24 @@ def main():
             
 
         opcion = input(Fore.CYAN + "Elige una opción: ").strip()
-
+        
         if opcion == "1":
             descripcion = input(Fore.GREEN + "Escribe la nueva tarea: ").strip()
-            prioridad = input(Fore.GREEN + "Escribe la prioridad (Alta, Media, Baja): ").strip().capitalize()
+            prioridad_sugerida = sugeridor.sugerir_prioridad(descripcion)
+            print(Fore.YELLOW + f"Prioridad sugerida: {prioridad_sugerida}")
+            prioridad = input(Fore.GREEN + "Escribe la prioridad (Alta, Media, Baja) o presiona Enter para usar la sugerida: ").strip().capitalize()
+            if not prioridad:
+                prioridad = prioridad_sugerida
             if prioridad not in ["Alta", "Media", "Baja"]:
                 print(Fore.RED + "Prioridad inválida. Usa 'Alta', 'Media' o 'Baja'.")
                 continue
             gestor_tareas.agregar_tarea(descripcion, prioridad)
             print(Fore.GREEN + "Tarea añadida correctamente.")
+            print(Fore.GREEN + "Tarea añadida correctamente.")
+
+            print("Función de sugerencia de prioridad añadida correctamente al agregar tarea.")
+        
+    
 
         elif opcion == "2":
             tareas = gestor_tareas.listar_tareas()
