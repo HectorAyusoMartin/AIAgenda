@@ -1,10 +1,5 @@
 {
-    "tareas_activas": [
-        {
-            "descripcion": "hacer la cama despues de despertarme",
-            "prioridad": "Media"
-        }
-    ],
+    "tareas_activas": [],
     "tareas_completadas": [
         {
             "descripcion": "cambio a por hacer la cama",
