@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 
-# Crear el modelo de sugerencia
+
 class SugeridorDePrioridad:
     def __init__(self):
         self.vectorizer = CountVectorizer()
@@ -161,11 +161,10 @@ class SugeridorDePrioridad:
         ]
 
 
-        # Dividir el conjunto de datos para entrenamiento y prueba
+        
         X = self.vectorizer.fit_transform(tareas)
         X_train, X_test, y_train, y_test = train_test_split(X, prioridades, test_size=0.2, random_state=42)
 
-        # Entrenar el modelo
         self.modelo.fit(X_train, y_train)
 
         
@@ -174,5 +173,5 @@ class SugeridorDePrioridad:
         X = self.vectorizer.transform([descripcion])
         return self.modelo.predict(X)[0]
 
-# Instanciar el sugeridor de prioridad
+
 sugeridor = SugeridorDePrioridad()

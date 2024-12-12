@@ -4,9 +4,9 @@ import pickle
 
 class ClasificadorPrioridades:
     def __init__(self):
-        # Dataset de ejemplo (puedes ampliarlo con más datos)
+       
         self.data = [
-            # Tareas de prioridad Alta
+            
             ("Completar informe de ventas urgente", "Alta"),
             ("Resolver problemas críticos del servidor", "Alta"),
             ("Preparar presentación para la junta directiva", "Alta"),
@@ -18,7 +18,7 @@ class ClasificadorPrioridades:
             ("Analizar reportes financieros trimestrales", "Alta"),
             ("Coordinar equipo para la reunión de emergencia", "Alta"),
 
-            # Tareas de prioridad Media
+          
             ("Revisar los correos pendientes del día", "Media"),
             ("Actualizar la lista de contactos del equipo", "Media"),
             ("Planificar actividades para la próxima semana", "Media"),
@@ -30,7 +30,7 @@ class ClasificadorPrioridades:
             ("Llamar a clientes para confirmar pedidos", "Media"),
             ("Revisar documentación interna para actualizaciones", "Media"),
 
-            # Tareas de prioridad Baja
+            
             ("Organizar documentos antiguos", "Baja"),
             ("Limpiar el escritorio y la oficina", "Baja"),
             ("Hacer copias de seguridad regulares", "Baja"),
@@ -42,7 +42,7 @@ class ClasificadorPrioridades:
             ("Actualizar plantillas de correos corporativos", "Baja"),
             ("Planificar limpieza general de la oficina", "Baja"),
 
-            # Más ejemplos variados
+            
             ("Solucionar problemas con proveedores importantes", "Alta"),
             ("Enviar actualizaciones a los clientes principales", "Media"),
             ("Actualizar manuales de procedimientos internos", "Baja"),
@@ -64,7 +64,7 @@ class ClasificadorPrioridades:
             ("Comprar ingredientes frescos para la comida", "Alta"),
             ("Aspirar alfombras que llevan meses sin limpiar", "Alta"),
 
-            # Tareas de prioridad Media
+           
             ("Ordenar los armarios de la cocina", "Media"),
             ("Planificar el menú de la semana", "Media"),
             ("Revisar los pagos pendientes de servicios", "Media"),
@@ -76,7 +76,7 @@ class ClasificadorPrioridades:
             ("Revisar las luces fundidas de la casa", "Media"),
             ("Regar las plantas del jardín", "Media"),
 
-            # Tareas de prioridad Baja
+          
             ("Limpiar los espejos del baño", "Baja"),
             ("Ordenar los libros en la estantería", "Baja"),
             ("Sacar la basura de reciclaje", "Baja"),
@@ -92,26 +92,24 @@ class ClasificadorPrioridades:
         self.vectorizador = CountVectorizer()
 
     def entrenar_modelo(self):
-        # Separar datos y etiquetas
+       
         textos, etiquetas = zip(*self.data)
 
-        # Vectorizar textos
+        
         X = self.vectorizador.fit_transform(textos)
         
-        # Entrenar modelo de clasificación
         self.modelo = MultinomialNB()
         self.modelo.fit(X, etiquetas)
 
-        # Guardar modelo y vectorizador
         with open("clasificador_model.pkl", "wb") as f:
             pickle.dump((self.vectorizador, self.modelo), f)
 
     def predecir_prioridad(self, descripcion):
-        # Cargar modelo entrenado
+        
         if not self.modelo:
             with open("clasificador_model.pkl", "rb") as f:
                 self.vectorizador, self.modelo = pickle.load(f)
         
-        # Predecir prioridad
+        
         X = self.vectorizador.transform([descripcion])
         return self.modelo.predict(X)[0]

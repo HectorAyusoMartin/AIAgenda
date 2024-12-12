@@ -13,7 +13,6 @@ from colorama import Fore, Style, init
 
 
 
-# Inicializar colorama
 init(autoreset=True)
 
 def main():

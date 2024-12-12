@@ -1,22 +1,7 @@
+
+
 {
-    "tareas_activas": [
-        {
-            "descripcion": "llamar al banco",
-            "prioridad": "Alta"
-        },
-        {
-            "descripcion": "hacer la cama",
-            "prioridad": "Media"
-        },
-        {
-            "descripcion": "hacer la cama",
-            "prioridad": "Media"
-        },
-        {
-            "descripcion": "hola como estan",
-            "prioridad": "Media"
-        }
-    ],
+    "tareas_activas": [],
     "tareas_completadas": [
         {
             "descripcion": "cambio a por hacer la cama",
@@ -29,6 +14,18 @@
         {
             "descripcion": "llamar a Lydia para que compre loteria",
             "prioridad": "Alta"
+        },
+        {
+            "descripcion": "hacer la cama",
+            "prioridad": "Media"
+        },
+        {
+            "descripcion": "llamar al banco",
+            "prioridad": "Baja"
+        },
+        {
+            "descripcion": "prueba",
+            "prioridad": "Media"
         }
     ]
 }
